@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="wrap">
+            <div id="card">
+                <h2>NOW PLAYING</h2>
+                <div id="imgDiv">
+                    <img src="source.png" id="img" />
+                </div>
+                <audio id="audio" src="songs/Dream - Mask.mp3"></audio>
+                <h2 id="songArtist">CRYSTAL CASTLES</h2>
+                <h3 id="songName">What is logical</h3>
+                <div id="progressbarWrap">
+                    <div id="progressbar">
+                        <div id="progressbarValue"></div>
+                    </div>
+                </div>
+                <div id="buttons">
+                    <div class="circle">
+                        <input
+                            id="prevSong"
+                            type="image"
+                            src="prevSongsvg.svg"
+                        />
+                    </div>
+                    <div class="circle" id="pauseCircle">
+                        <input
+                            id="playPauseSong"
+                            type="image"
+                            src="playSongsvg.svg"
+                        />
+                    </div>
+                    <div class="circle">
+                        <input
+                            id="nextSong"
+                            type="image"
+                            src="nextSongsvg.svg"
+                        />
+                    </div>
+                </div>
+            </div>
+            <script type="module" src="script.js"></script>
+        </div>
+    </body>
+</html>

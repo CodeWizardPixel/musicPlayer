@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    height: 100vh;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+}
+
+img {
+    max-height: 255px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 45px 0px rgba(34, 60, 80, 0.2);
+}
+
+#wrap {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(226, 226, 226);
+}
+
+#card {
+    min-width: 30%;
+    min-height: 90%;
+    border-radius: 20px;
+    box-shadow: 4px 4px 45px 0px rgba(34, 60, 80, 0.2);
+    background-color: rgb(255, 255, 255);
+}
+
+#card h2 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 900;
+    margin: 10px 0px 10px 0px;
+    text-align: center;
+    color: rgb(100, 100, 100);
+}
+
+#card h3 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    text-align: center;
+    color: rgb(160, 160, 160);
+}
+
+#imgDiv {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#progressbarWrap {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+#progressbar {
+    margin: 10px 30px 10px 30px;
+    padding: 0px 4px 0px 4px;
+    width: 300px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: rgb(243, 243, 243)
+}
+
+#progressbarValue {
+    height: 4px;
+    border-radius: 5px;
+    background-color: rgb(150, 150, 150);
+}
+
+#buttons {
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle {
+    margin: 10px;
+    padding: 15px;
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    box-shadow: 4px 4px 45px 0px rgba(34, 60, 80, 0.2);
+    background-color: rgb(255, 255, 255);
+}
+
+#pauseCircle {
+    width: 55px;
+    height: 55px;
+}
+
