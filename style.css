@@ -88,7 +88,7 @@ img {
 }
 
 #buttons {
-    margin: 15px;
+    margin: 5px 10px 25px 10px;
     display: flex;
     justify-content: center;
     align-items: center;
