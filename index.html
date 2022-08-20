@@ -8,15 +8,25 @@
         <title>Document</title>
     </head>
     <body>
-        <div id="wrap">
+        <div id="inputWrap" class="wrap">
+            <input
+                type="file"
+                name="Music"
+                id="folderInput"
+                webkitdirectory
+                directory
+                multiple
+            />
+        </div>
+        <div id="cardWrap" class="wrap">
             <div id="card">
                 <h2>NOW PLAYING</h2>
                 <div id="imgDiv">
                     <img src="source.png" id="img" />
                 </div>
-                <audio id="audio" src="songs/Dream - Mask.mp3"></audio>
-                <h2 id="songArtist">CRYSTAL CASTLES</h2>
-                <h3 id="songName">What is logical</h3>
+                <audio id="audio"></audio>
+                <h2 id="songName">CRYSTAL CASTLES</h2>
+                <h3 id="songArtist">What is logical</h3>
                 <div id="progressbarWrap">
                     <div id="progressbar">
                         <div id="progressbarValue"></div>
@@ -46,7 +56,7 @@
                     </div>
                 </div>
             </div>
-            <script type="module" src="script.js"></script>
+            <script src="script.js"></script>
         </div>
     </body>
 </html>

@@ -1,3 +1,6 @@
+const folderInput = document.getElementById("folderInput");
+const inputWrap = document.getElementById("inputWrap");
+const cardWrap = document.getElementById("cardWrap");
 const card = document.getElementById("card");
 const songImage = document.getElementById("img");
 const audio = document.getElementById("audio");
@@ -9,20 +12,17 @@ const nextSongBtn = document.getElementById("nextSong");
 const progressbar = document.getElementById("progressbar");
 const progressbarValue = document.getElementById("progressbarValue");
 
-let songs = [
-    "Dream - Mask",
-    "Bonobo - Linked (Original Mix)",
-    "Sati Akura - NIGHT RUNNING",
-    "X Ambassadors - Shining",
-    "Mick Gordon - At Doom's Gate",
-    "mxnarch - Japanese Stutter",
-    "Monsta - Holdin' On",
-];
 let songIndex = 0;
-
+let songFiles;
 let api_key = "7a3bc5297588ff670d20342b059321e2";
 
-loadSong(songs[songIndex]);
+folderInput.addEventListener("change", () => {
+    cardWrap.style.visibility = "visible";
+    inputWrap.style.visibillity = "hidden";
+    songFiles = folderInput.files;
+    loadSong(songFiles[songIndex]);
+    console.log(songFiles);
+});
 
 prevSongBtn.addEventListener("click", () => {
     prevSong();
@@ -45,13 +45,25 @@ audio.addEventListener("timeupdate", updateProgress);
 
 progressbar.addEventListener("click", setProgress);
 
-function loadSong(song) {
-    let artist = song.split(" - ")[0];
-    let name = song.split(" - ")[1];
+function filterSong(file, callback) {
+    if (file.name.split(".").pop() == "mp3") {
+        let nameSplit = file.name.split(" - ");
+        return [nameSplit[0], nameSplit[1].split(".")[0]];
+    } else {
+        callback();
+        return;
+    }
+}
+
+function loadSong(file, callback) {
+    nameArr = filterSong(file, callback);
+    console.log(nameArr);
+    let name = nameArr[1];
+    let artist = nameArr[0];
+    songArtist.innerText = artist;
+    songName.innerText = name;
+    audio.src = URL.createObjectURL(file);
     loadImage(artist, name);
-    songArtist.innerText = name;
-    songName.innerText = artist;
-    audio.src = `songs/${song}.mp3`;
 }
 
 async function loadImage(artist, name) {
@@ -75,21 +87,21 @@ async function loadImage(artist, name) {
 
 function prevSong() {
     if (songIndex == 0) {
-        songIndex = songs.length - 1;
+        songIndex = songFiles.length - 1;
     } else {
         songIndex--;
     }
-    loadSong(songs[songIndex]);
+    loadSong(songFiles[songIndex], prevSong);
     playSong();
 }
 
 function nextSong() {
-    if (songIndex == songs.length - 1) {
+    if (songIndex == songFiles.length - 1) {
         songIndex = 0;
     } else {
         songIndex++;
     }
-    loadSong(songs[songIndex]);
+    loadSong(songFiles[songIndex], nextSong);
     playSong();
 }
 
